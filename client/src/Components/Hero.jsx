@@ -87,7 +87,7 @@ export default function Hero() {
                                         >
                                             {word}
                                         </motion.span>
-                                    )}}
+                                    ))}
                                 </span>
                             </motion.h3>
 
