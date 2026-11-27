@@ -3,27 +3,29 @@ export const instant = false
 import ProductsFilter from "./ProductsFilters";
 import ProductsHero from "./ProductsHero";
 
+
 async function getProducts() {
     try {
-        const response = await fetch("http://localhost:5001/api/products",
-            {
-                cache: "no-store"
-            }
-        )
+        const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+        const response = await fetch(`${API_URL}/api/products`, {
+            cache: "no-store"
+        });
 
         if (!response.ok) {
-            throw new Error("Failed to fetch products")
+            throw new Error(`Failed to fetch products: ${response.status}`);
         }
 
-        const data = await response.json()
+        const data = await response.json();
 
-        return data.products
+        return data.products || [];
 
     } catch (error) {
-        console.error("Error fetching products:", error)
-        return []
+        console.error("Error fetching products:", error);
+        return [];
     }
 }
+
 
 
 export default async function ProductsPage({ searchParams }) {
