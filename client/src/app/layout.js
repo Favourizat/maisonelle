@@ -30,7 +30,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Maisonelle | Furniture & Home Décor",
+  title: "Maisonelle | Luxury Home Furniture", 
   description: "Discover thoughtfully curated furniture and home essentials.",
 };
 
